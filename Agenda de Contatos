@@ -1,0 +1,72 @@
+fun main() {
+    val contatos = mutableListOf<Contato>()
+    var opcao = ""
+
+    while (opcao != "SAIR") {
+        println("Digite CADASTRAR, BUSCAR, REMOVER, LISTAR ou SAIR:")
+        opcao = readLine()!!
+
+        if (opcao == "CADASTRAR") {
+            println("Digite o nome:")
+            val nome = readLine()!!
+
+            println("Digite o telefone:")
+            val telefone = readLine()!!
+
+            val contato = Contato(nome, telefone)
+            contatos.add(contato)
+
+            println("Contato cadastrado!")
+        }
+
+        if (opcao == "BUSCAR") {
+            println("Digite o nome do contato:")
+            val nome = readLine()!!
+
+            var encontrado = false
+
+            for (contato in contatos) {
+                if (contato.nome == nome) {
+                    println("Telefone: ${contato.telefone}")
+                    encontrado = true
+                }
+            }
+
+            if (!encontrado) {
+                println("Contato não encontrado")
+            }
+        }
+
+        if (opcao == "REMOVER") {
+            println("Digite o nome do contato:")
+            val nome = readLine()!!
+
+            var removido = false
+
+            for (contato in contatos) {
+                if (contato.nome == nome) {
+                    contatos.remove(contato)
+                    removido = true
+                    break
+                }
+            }
+
+            if (removido) {
+                println("Contato removido!")
+            } else {
+                println("Contato não encontrado")
+            }
+        }
+
+        if (opcao == "LISTAR") {
+            for (contato in contatos) {
+                println("Nome: ${contato.nome}")
+                println("Telefone: ${contato.telefone}")
+            }
+        }
+    }
+
+    println("Agenda encerrada. Total de contatos: ${contatos.size}")
+}
+
+data class Contato(val nome: String, val telefone: String)
