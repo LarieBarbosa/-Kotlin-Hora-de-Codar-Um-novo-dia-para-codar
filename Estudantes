@@ -1,0 +1,21 @@
+fun main() {
+    val estudantes = mutableListOf<String>()
+
+    var nome = ""
+
+    while (nome != "PARE") {
+        println("Digite o nome do estudante ou PARE para terminar:")
+        nome = readLine()!!
+
+        if (nome != "PARE") {
+            estudantes.add(nome)
+        }
+    }
+
+    println("Quantidade de estudantes: ${estudantes.size}")
+    println("Lista de estudantes:")
+
+    for (estudante in estudantes) {
+        println(estudante)
+    }
+}
