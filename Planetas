@@ -1,0 +1,15 @@
+fun main() {
+    val planetas = listOf("Mercúrio", "Vênus", "Terra", "Marte", "Júpiter", "Saturno", "Urano", "Netuno", "Plutão")
+
+    println("Lista de planetas:")
+    println(planetas)
+
+    println("Digite o nome de um planeta:")
+    val planeta = readLine()!!
+
+    if (planetas.contains(planeta)) {
+        println("O planeta está na lista.")
+    } else {
+        println("O planeta não está na lista.")
+    }
+}
