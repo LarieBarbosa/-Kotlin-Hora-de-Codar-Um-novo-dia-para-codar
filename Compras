@@ -1,0 +1,29 @@
+fun main() {
+    val frutas = mutableListOf("Maçã", "Banana", "Uva", "Pera", "Laranja")
+
+    println(frutas)
+
+    var fruta = ""
+
+    while (fruta != "PARE" && frutas.isNotEmpty()) {
+        println("Digite uma fruta para remover ou PARE para terminar:")
+        fruta = readLine()!!
+
+        if (fruta == "PARE") {
+            break
+        }
+
+        if (frutas.contains(fruta)) {
+            frutas.remove(fruta)
+            println("Fruta foi retirada da lista")
+        } else {
+            println("Fruta indisponível no nosso mercado")
+        }
+    }
+
+    if (frutas.isEmpty()) {
+        println("Lista de compras finalizada")
+    } else {
+        println(frutas)
+    }
+}
